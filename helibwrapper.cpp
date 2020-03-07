@@ -235,7 +235,7 @@ JNIEXPORT void JNICALL Java_HelibJNIApi_makeBootstrappable
 JNIEXPORT jboolean JNICALL Java_HelibJNIApi_isBootstrappable
   (JNIEnv *jenv, jobject jobj, jlong cptr) {
   Context* ctr = (Context*)cptr;
-  ctr->isBootstrappable();
+  return ctr->isBootstrappable();
 }
 
 JNIEXPORT void JNICALL Java_HelibJNIApi_genRecryptData

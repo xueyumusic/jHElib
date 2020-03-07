@@ -34,4 +34,17 @@ The api now implemented are:
 | fifteenOrLess4Four | fifteenOrLess4Four |
 
 The `TestHelibJNI.java` implements the example of `BGV_general_example` in HElib.
+
 The `BinaryApiTest.java` implements the example of `binaryArith_example` in HElib.
+
+Usage:
+```
+javac HelibJNIApi.java
+javah HelibJNIApi
+
+mkdir build
+cd build
+cmake -Dhelib_DIR=<helib install prefix>/share/cmake/helib
+
+java -Djava.library.path=<helib install prefix>lib/:./build BinaryApiTest
+```
