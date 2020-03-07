@@ -46,5 +46,5 @@ mkdir build
 cd build
 cmake -Dhelib_DIR=<helib install prefix>/share/cmake/helib
 
-java -Djava.library.path=<helib install prefix>lib/:./build BinaryApiTest
+java -Djava.library.path=<helib install prefix>/lib/:./build BinaryApiTest
 ```
