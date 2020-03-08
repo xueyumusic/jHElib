@@ -1,7 +1,9 @@
 # jHElib
 java for HElib
 
-jHElib is "java for HElib", which makes java could use homomorphic encryption HElib. It uses JNI to bridge java and C++ lib HElib.
+jHElib is "java for HElib", which makes java could use homomorphic encryption HElib. 
+
+It provides two ways to connect java and HElib c++ lib, one is based on jnr-ffi and the other uses native JNI.
 
 **NOTE: The first version of jHElib is not optimized and does not check poiter. It only makes "java for HElib" practical and runnable.**
 
@@ -44,7 +46,20 @@ javah HelibJNIApi
 
 mkdir build
 cd build
-cmake -Dhelib_DIR=<helib install prefix>/share/cmake/helib
-
+cmake -Dhelib_DIR=<helib install prefix>/share/cmake/helib ..
+make
+cd ..
 java -Djava.library.path=<helib install prefix>/lib/:./build BinaryApiTest
+```
+
+jnr-ffi usage:
+```
+cd jnr
+mkdir build
+cd build
+cmake -Dhelib_DIR=<helib install prefix>/share/cmake/helib ..
+make
+make install
+cd ..
+
 ```
