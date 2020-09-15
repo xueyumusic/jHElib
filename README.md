@@ -41,15 +41,16 @@ The `BinaryApiTest.java` implements the example of `binaryArith_example` in HEli
 
 Usage:
 ```
-javac HelibJNIApi.java
-javah HelibJNIApi
+javac -h . HelibJNIApi.java
 
 mkdir build
 cd build
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Home  (cmake use JAVA_HOME as include base path)
 cmake -Dhelib_DIR=<helib install prefix>/share/cmake/helib ..
 make
 cd ..
-java -Djava.library.path=<helib install prefix>/lib/:./build BinaryApiTest
+javac TestHelibJNI.java
+java -Djava.library.path=<helib install prefix>/lib/:./build TestHelibJNI
 ```
 
 jnr-ffi usage:

@@ -7,11 +7,19 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 ## Require full C++ standard
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+if(NOT DEFINED ENV{JAVA_HOME})
+    message(FATAL_ERROR "not defined environment variable:JAVA_HOME") 
+endif()
+
 project(jHElib_jni_example
        	LANGUAGES CXX)
-include_directories(/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/include/)
-include_directories(/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/include/darwin/)
-find_package(helib 1.0.0 EXACT REQUIRED)
+## include_directories(/Library/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Home/include/)
+## include_directories(/Library/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Home/include/darwin/)
+
+include_directories($ENV{JAVA_HOME}/include/)
+include_directories($ENV{JAVA_HOME}/include/darwin/)
+
+find_package(helib)
 
 set(SRC helibwrapper.cpp)                                                      
 add_library(helibjni SHARED ${SRC})  

@@ -1,1 +1,0 @@
-g++ -fPIC  -I/home/q/xueyu/helib2/install/include/ -I/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.221.x86_64/include/ -I/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.221.x86_64/include/linux/  -L. -lhelib  -shared -o libhelibjni.so helibwrapper.cpp
